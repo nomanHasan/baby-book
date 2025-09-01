@@ -14,7 +14,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "deploy": "npm run build && npm run deploy:gh-pages",
-    "deploy:gh-pages": "npx gh-pages -d dist"
+    "deploy:gh-pages": "./scripts/deploy-gh-pages.sh"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.35.3",

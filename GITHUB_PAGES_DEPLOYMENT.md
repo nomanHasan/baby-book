@@ -1,42 +1,41 @@
 # GitHub Pages Deployment Guide
 
-Your project is already configured for GitHub Pages deployment! Here's how to deploy:
+Your project is configured for GitHub Pages deployment. There are two deployment options:
 
-## Quick Setup (One-time only)
+## Option 1: GitHub Actions (Recommended)
 
-1. **Initialize Git and push to GitHub:**
+**Automatic deployment on every push to master/main**
+
+1. **Push your code to GitHub:**
    ```bash
-   # Initialize git repository (if not already done)
-   git init
    git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   
-   # Add your GitHub repository as origin
-   git remote add origin https://github.com/yourusername/baby-book.git
-   git push -u origin main
+   git commit -m "Your commit message"
+   git push
    ```
-   
-   **Important:** You must have a GitHub repository set up before deploying!
 
-2. **Enable GitHub Pages in repository settings:**
+2. **Enable GitHub Pages with Actions:**
    - Go to your GitHub repository
    - Navigate to Settings → Pages
-   - Under "Source", select "Deploy from a branch"
-   - Choose "gh-pages" branch and "/ (root)" folder
-   - Click Save
+   - Under "Source", select "GitHub Actions"
+   - The deployment will happen automatically on every push
 
-## Deploy Commands
+3. **Your site will be available at:**
+   ```
+   https://nomanhasan.github.io/baby-book/
+   ```
 
-Your project includes pre-configured deployment scripts:
+## Option 2: Manual Deployment
+
+If the gh-pages package doesn't work in your environment, build and deploy manually:
 
 ```bash
-# Build and deploy in one command
-npm run deploy
+# Build the project
+npm run build
 
-# Or run separately:
-npm run build        # Build the project
-npm run deploy:gh-pages  # Deploy to gh-pages branch
+# Deploy manually by:
+# 1. Creating gh-pages branch
+# 2. Copying dist/ contents to gh-pages branch
+# 3. Pushing to GitHub
 ```
 
 ## What's Already Configured

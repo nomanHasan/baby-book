@@ -88,3 +88,4 @@ The project foundation is complete and ready for implementing:
 - Milestone tracking features
 - Advanced UI components
 - Do not run dev server on your own, I'm running it in separate window
+- Never automatically commit to git
