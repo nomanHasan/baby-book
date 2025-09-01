@@ -1,0 +1,744 @@
+{
+  "books": [
+    {
+      "id": "animal-vegetables",
+      "title": "Animal Vegetables",
+      "description": "",
+      "coverImage": {
+        "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_43_56 AM.png",
+        "alt": "Page 1",
+        "width": 1024,
+        "height": 1536,
+        "aspectRatio": 0.6666666666666666
+      },
+      "pages": [
+        {
+          "id": "page-1",
+          "title": "ChatGPT Image Sep 1, 2025, 12 43 56 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_43_56 AM.png",
+            "alt": "Page 1",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 1
+        },
+        {
+          "id": "page-2",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 00 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_00 AM.png",
+            "alt": "Page 2",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 2
+        },
+        {
+          "id": "page-3",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 14 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_14 AM.png",
+            "alt": "Page 3",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 3
+        },
+        {
+          "id": "page-4",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 20 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_20 AM.png",
+            "alt": "Page 4",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 4
+        },
+        {
+          "id": "page-5",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 24 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_24 AM.png",
+            "alt": "Page 5",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 5
+        },
+        {
+          "id": "page-6",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 27 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_27 AM.png",
+            "alt": "Page 6",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 6
+        },
+        {
+          "id": "page-7",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 30 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_30 AM.png",
+            "alt": "Page 7",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 7
+        },
+        {
+          "id": "page-8",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 33 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_33 AM.png",
+            "alt": "Page 8",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 8
+        },
+        {
+          "id": "page-9",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 36 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_36 AM.png",
+            "alt": "Page 9",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 9
+        },
+        {
+          "id": "page-10",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 39 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_39 AM.png",
+            "alt": "Page 10",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 10
+        },
+        {
+          "id": "page-11",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 42 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_42 AM.png",
+            "alt": "Page 11",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 11
+        },
+        {
+          "id": "page-12",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 45 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_45 AM.png",
+            "alt": "Page 12",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 12
+        },
+        {
+          "id": "page-13",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 48 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_48 AM.png",
+            "alt": "Page 13",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 13
+        },
+        {
+          "id": "page-14",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 51 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_51 AM.png",
+            "alt": "Page 14",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 14
+        },
+        {
+          "id": "page-15",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 54 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_54 AM.png",
+            "alt": "Page 15",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 15
+        },
+        {
+          "id": "page-16",
+          "title": "ChatGPT Image Sep 1, 2025, 12 44 57 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_44_57 AM.png",
+            "alt": "Page 16",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 16
+        },
+        {
+          "id": "page-17",
+          "title": "ChatGPT Image Sep 1, 2025, 12 45 00 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_45_00 AM.png",
+            "alt": "Page 17",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 17
+        },
+        {
+          "id": "page-18",
+          "title": "ChatGPT Image Sep 1, 2025, 12 45 04 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_45_04 AM.png",
+            "alt": "Page 18",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 18
+        },
+        {
+          "id": "page-19",
+          "title": "ChatGPT Image Sep 1, 2025, 12 45 08 AM",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/ChatGPT Image Sep 1, 2025, 12_45_08 AM.png",
+            "alt": "Page 19",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 19
+        },
+        {
+          "id": "page-20",
+          "title": "F208fc68 9e02 4616 868f Cd245c03d3a9",
+          "description": "",
+          "image": {
+            "src": "/processed-books/animal-vegetables/f208fc68-9e02-4616-868f-cd245c03d3a9.png",
+            "alt": "Page 20",
+            "width": 1024,
+            "height": 1536,
+            "aspectRatio": 0.6666666666666666
+          },
+          "pageNumber": 20
+        }
+      ],
+      "createdAt": "2025-09-01T17:55:42.245Z",
+      "updatedAt": "2025-09-01T17:55:42.245Z",
+      "tags": [],
+      "settings": {
+        "pageTransition": "slide",
+        "autoplay": false,
+        "showPageNumbers": true
+      }
+    },
+    {
+      "id": "nusaiba-s-golden-star-potty-day",
+      "title": "Nusaiba’S Golden Star Potty Day",
+      "description": "",
+      "coverImage": {
+        "src": "/processed-books/nusaiba-s-golden-star-potty-day/unnamed (1).png",
+        "alt": "Page 1",
+        "width": 896,
+        "height": 1280,
+        "aspectRatio": 0.7
+      },
+      "pages": [
+        {
+          "id": "page-1",
+          "title": "Unnamed (1)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-golden-star-potty-day/unnamed (1).png",
+            "alt": "Page 1",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 1
+        },
+        {
+          "id": "page-2",
+          "title": "Unnamed (2)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-golden-star-potty-day/unnamed (2).png",
+            "alt": "Page 2",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 2
+        },
+        {
+          "id": "page-3",
+          "title": "Unnamed (3)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-golden-star-potty-day/unnamed (3).png",
+            "alt": "Page 3",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 3
+        },
+        {
+          "id": "page-4",
+          "title": "Unnamed (4)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-golden-star-potty-day/unnamed (4).png",
+            "alt": "Page 4",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 4
+        },
+        {
+          "id": "page-5",
+          "title": "Unnamed (5)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-golden-star-potty-day/unnamed (5).png",
+            "alt": "Page 5",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 5
+        },
+        {
+          "id": "page-6",
+          "title": "Unnamed (6)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-golden-star-potty-day/unnamed (6).png",
+            "alt": "Page 6",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 6
+        },
+        {
+          "id": "page-7",
+          "title": "Unnamed (7)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-golden-star-potty-day/unnamed (7).png",
+            "alt": "Page 7",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 7
+        },
+        {
+          "id": "page-8",
+          "title": "Unnamed (8)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-golden-star-potty-day/unnamed (8).png",
+            "alt": "Page 8",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 8
+        },
+        {
+          "id": "page-9",
+          "title": "Unnamed (9)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-golden-star-potty-day/unnamed (9).png",
+            "alt": "Page 9",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 9
+        },
+        {
+          "id": "page-10",
+          "title": "Unnamed",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-golden-star-potty-day/unnamed.png",
+            "alt": "Page 10",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 10
+        }
+      ],
+      "createdAt": "2025-09-01T17:55:42.833Z",
+      "updatedAt": "2025-09-01T17:55:42.833Z",
+      "tags": [],
+      "settings": {
+        "pageTransition": "slide",
+        "autoplay": false,
+        "showPageNumbers": true
+      }
+    },
+    {
+      "id": "nusaiba-s-wonderful-day",
+      "title": "Nusaiba'S Wonderful Day",
+      "description": "",
+      "coverImage": {
+        "src": "/processed-books/nusaiba-s-wonderful-day/unname.png",
+        "alt": "Page 1",
+        "width": 896,
+        "height": 1280,
+        "aspectRatio": 0.7
+      },
+      "pages": [
+        {
+          "id": "page-1",
+          "title": "Unname",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-wonderful-day/unname.png",
+            "alt": "Page 1",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 1
+        },
+        {
+          "id": "page-2",
+          "title": "Unnamed (1)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-wonderful-day/unnamed (1).png",
+            "alt": "Page 2",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 2
+        },
+        {
+          "id": "page-3",
+          "title": "Unnamed (2)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-wonderful-day/unnamed (2).png",
+            "alt": "Page 3",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 3
+        },
+        {
+          "id": "page-4",
+          "title": "Unnamed (3)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-wonderful-day/unnamed (3).png",
+            "alt": "Page 4",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 4
+        },
+        {
+          "id": "page-5",
+          "title": "Unnamed (4)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-wonderful-day/unnamed (4).png",
+            "alt": "Page 5",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 5
+        },
+        {
+          "id": "page-6",
+          "title": "Unnamed (5)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-wonderful-day/unnamed (5).png",
+            "alt": "Page 6",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 6
+        },
+        {
+          "id": "page-7",
+          "title": "Unnamed (6)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-wonderful-day/unnamed (6).png",
+            "alt": "Page 7",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 7
+        },
+        {
+          "id": "page-8",
+          "title": "Unnamed (7)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-wonderful-day/unnamed (7).png",
+            "alt": "Page 8",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 8
+        },
+        {
+          "id": "page-9",
+          "title": "Unnamed (8)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-wonderful-day/unnamed (8).png",
+            "alt": "Page 9",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 9
+        },
+        {
+          "id": "page-10",
+          "title": "Unnamed",
+          "description": "",
+          "image": {
+            "src": "/processed-books/nusaiba-s-wonderful-day/unnamed.png",
+            "alt": "Page 10",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 10
+        }
+      ],
+      "createdAt": "2025-09-01T17:55:42.717Z",
+      "updatedAt": "2025-09-01T17:55:42.717Z",
+      "tags": [],
+      "settings": {
+        "pageTransition": "slide",
+        "autoplay": false,
+        "showPageNumbers": true
+      }
+    },
+    {
+      "id": "rainbow-plate-detective",
+      "title": "Rainbow Plate Detective",
+      "description": "",
+      "coverImage": {
+        "src": "/processed-books/rainbow-plate-detective/unnamed (1).png",
+        "alt": "Page 1",
+        "width": 896,
+        "height": 1280,
+        "aspectRatio": 0.7
+      },
+      "pages": [
+        {
+          "id": "page-1",
+          "title": "Unnamed (1)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/rainbow-plate-detective/unnamed (1).png",
+            "alt": "Page 1",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 1
+        },
+        {
+          "id": "page-2",
+          "title": "Unnamed (10)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/rainbow-plate-detective/unnamed (10).png",
+            "alt": "Page 2",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 2
+        },
+        {
+          "id": "page-3",
+          "title": "Unnamed (2)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/rainbow-plate-detective/unnamed (2).png",
+            "alt": "Page 3",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 3
+        },
+        {
+          "id": "page-4",
+          "title": "Unnamed (3)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/rainbow-plate-detective/unnamed (3).png",
+            "alt": "Page 4",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 4
+        },
+        {
+          "id": "page-5",
+          "title": "Unnamed (4)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/rainbow-plate-detective/unnamed (4).png",
+            "alt": "Page 5",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 5
+        },
+        {
+          "id": "page-6",
+          "title": "Unnamed (5)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/rainbow-plate-detective/unnamed (5).png",
+            "alt": "Page 6",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 6
+        },
+        {
+          "id": "page-7",
+          "title": "Unnamed (6)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/rainbow-plate-detective/unnamed (6).png",
+            "alt": "Page 7",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 7
+        },
+        {
+          "id": "page-8",
+          "title": "Unnamed (7)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/rainbow-plate-detective/unnamed (7).png",
+            "alt": "Page 8",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 8
+        },
+        {
+          "id": "page-9",
+          "title": "Unnamed (8)",
+          "description": "",
+          "image": {
+            "src": "/processed-books/rainbow-plate-detective/unnamed (8).png",
+            "alt": "Page 9",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 9
+        },
+        {
+          "id": "page-10",
+          "title": "Unnamed",
+          "description": "",
+          "image": {
+            "src": "/processed-books/rainbow-plate-detective/unnamed.png",
+            "alt": "Page 10",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 10
+        }
+      ],
+      "createdAt": "2025-09-01T17:55:42.935Z",
+      "updatedAt": "2025-09-01T17:55:42.935Z",
+      "tags": [],
+      "settings": {
+        "pageTransition": "slide",
+        "autoplay": false,
+        "showPageNumbers": true
+      }
+    }
+  ],
+  "generatedAt": "2025-09-01T17:55:42.232Z",
+  "version": "1.0.0"
+}
