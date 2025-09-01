@@ -4,9 +4,11 @@
  */
 
 // Core Services
-export { bookService } from './bookService';
-export { imageService } from './imageService';
-export { cacheService } from './cacheService';
+import { bookService } from './bookService';
+import { imageService } from './imageService';  
+import { cacheService } from './cacheService';
+
+export { bookService, imageService, cacheService };
 
 // Types
 export type {

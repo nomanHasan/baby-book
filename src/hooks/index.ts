@@ -4,7 +4,7 @@
  */
 
 // Book Management Hooks
-export {
+import {
   useBooks,
   useBook,
   useBookPages,
@@ -12,6 +12,15 @@ export {
   useBookTags,
   useBooksCache,
 } from './useBooks';
+
+export {
+  useBooks,
+  useBook,
+  useBookPages,
+  useBookSearch,
+  useBookTags,
+  useBooksCache,
+};
 
 export type {
   UseBooksOptions,
@@ -22,11 +31,17 @@ export type {
 } from './useBooks';
 
 // Image Loading Hooks
-export {
+import {
   useImageLoader,
   useImagePreloader,
   useImageCache,
 } from './useImageLoader';
+
+export {
+  useImageLoader,
+  useImagePreloader,
+  useImageCache,
+};
 
 export type {
   UseImageLoaderOptions,
@@ -35,10 +50,15 @@ export type {
 } from './useImageLoader';
 
 // Slideshow Hooks
-export {
+import {
   useSlideshow,
   useImageSlideshow,
 } from './useSlideshow';
+
+export {
+  useSlideshow,
+  useImageSlideshow,
+};
 
 export type {
   SlideshowItem,
@@ -48,11 +68,17 @@ export type {
 } from './useSlideshow';
 
 // Gesture Hooks
-export {
+import {
   useSwipeGestures,
   useSwipeNavigation,
   usePinchGesture,
 } from './useSwipeGestures';
+
+export {
+  useSwipeGestures,
+  useSwipeNavigation,
+  usePinchGesture,
+};
 
 export type {
   SwipeGestureOptions,

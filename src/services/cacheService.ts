@@ -70,8 +70,7 @@ class CacheService {
   private async initializeServiceWorker(): Promise<void> {
     if ('serviceWorker' in navigator) {
       try {
-        const _registration = await navigator.serviceWorker.register('/sw.js');
-        // this.serviceWorkerRegistration = registration; // TODO: Implement SW messaging
+        await navigator.serviceWorker.register('/sw.js');
         console.log('Service Worker registered');
       } catch (error) {
         console.warn('Service Worker registration failed:', error);

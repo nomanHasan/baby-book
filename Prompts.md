@@ -268,19 +268,6 @@ Implement virtual scrolling for the dashboard that:
 Ensure the dashboard remains performant with large book collections.
 ```
 
-### Prompt 7.3: Progressive Image Loading (LQIP)
-```
-Create a progressive image loading system that:
-- Shows low-quality image placeholders immediately
-- Progressively enhances to higher quality versions
-- Uses smooth transitions between quality levels
-- Implements proper loading states and error handling
-- Optimizes for different network conditions
-- Includes blur-to-sharp transition effects
-- Works seamlessly with the lazy loading system
-
-Users should never see empty image containers, always engaging content.
-```
 
 ## Phase 8: Mobile-First Responsive Design
 

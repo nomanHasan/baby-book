@@ -129,8 +129,8 @@ class ImageService {
       const loadTime = performance.now() - startTime;
 
       return {
-        url: finalUrl,
         ...imageData,
+        url: finalUrl,
         loading: false,
         loadTime,
         fromCache: false
@@ -358,7 +358,9 @@ class ImageService {
     // Implement LRU eviction if cache is full
     if (this.imageCache.size >= this.MAX_CACHE_SIZE) {
       const firstKey = this.imageCache.keys().next().value;
-      this.imageCache.delete(firstKey);
+      if (firstKey) {
+        this.imageCache.delete(firstKey);
+      }
     }
 
     this.imageCache.set(key, { ...data, fromCache: true });
