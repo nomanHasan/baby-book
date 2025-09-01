@@ -273,8 +273,8 @@
           "pageNumber": 20
         }
       ],
-      "createdAt": "2025-09-01T18:04:33.152Z",
-      "updatedAt": "2025-09-01T18:04:33.152Z",
+      "createdAt": "2025-09-01T18:10:32.221Z",
+      "updatedAt": "2025-09-01T18:10:32.221Z",
       "tags": [],
       "settings": {
         "pageTransition": "slide",
@@ -425,8 +425,8 @@
           "pageNumber": 10
         }
       ],
-      "createdAt": "2025-09-01T18:04:33.796Z",
-      "updatedAt": "2025-09-01T18:04:33.796Z",
+      "createdAt": "2025-09-01T18:10:32.732Z",
+      "updatedAt": "2025-09-01T18:10:32.732Z",
       "tags": [],
       "settings": {
         "pageTransition": "slide",
@@ -577,8 +577,8 @@
           "pageNumber": 10
         }
       ],
-      "createdAt": "2025-09-01T18:04:33.629Z",
-      "updatedAt": "2025-09-01T18:04:33.629Z",
+      "createdAt": "2025-09-01T18:10:32.626Z",
+      "updatedAt": "2025-09-01T18:10:32.626Z",
       "tags": [],
       "settings": {
         "pageTransition": "slide",
@@ -729,8 +729,95 @@
           "pageNumber": 10
         }
       ],
-      "createdAt": "2025-09-01T18:04:33.916Z",
-      "updatedAt": "2025-09-01T18:04:33.916Z",
+      "createdAt": "2025-09-01T18:10:32.830Z",
+      "updatedAt": "2025-09-01T18:10:32.830Z",
+      "tags": [],
+      "settings": {
+        "pageTransition": "slide",
+        "autoplay": false,
+        "showPageNumbers": true
+      }
+    },
+    {
+      "id": "the-great-vegetable-feast",
+      "title": "The Great Vegetable Feast",
+      "description": "",
+      "coverImage": {
+        "src": "processed-books/the-great-vegetable-feast/Pasted image (2).png",
+        "alt": "Page 1",
+        "width": 896,
+        "height": 1280,
+        "aspectRatio": 0.7
+      },
+      "pages": [
+        {
+          "id": "page-1",
+          "title": "Pasted Image (2)",
+          "description": "",
+          "image": {
+            "src": "processed-books/the-great-vegetable-feast/Pasted image (2).png",
+            "alt": "Page 1",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 1
+        },
+        {
+          "id": "page-2",
+          "title": "Pasted Image (3)",
+          "description": "",
+          "image": {
+            "src": "processed-books/the-great-vegetable-feast/Pasted image (3).png",
+            "alt": "Page 2",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 2
+        },
+        {
+          "id": "page-3",
+          "title": "Pasted Image (4)",
+          "description": "",
+          "image": {
+            "src": "processed-books/the-great-vegetable-feast/Pasted image (4).png",
+            "alt": "Page 3",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 3
+        },
+        {
+          "id": "page-4",
+          "title": "Pasted Image (5)",
+          "description": "",
+          "image": {
+            "src": "processed-books/the-great-vegetable-feast/Pasted image (5).png",
+            "alt": "Page 4",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 4
+        },
+        {
+          "id": "page-5",
+          "title": "Pasted Image",
+          "description": "",
+          "image": {
+            "src": "processed-books/the-great-vegetable-feast/Pasted image.png",
+            "alt": "Page 5",
+            "width": 896,
+            "height": 1280,
+            "aspectRatio": 0.7
+          },
+          "pageNumber": 5
+        }
+      ],
+      "createdAt": "2025-09-01T18:10:32.933Z",
+      "updatedAt": "2025-09-01T18:10:32.933Z",
       "tags": [],
       "settings": {
         "pageTransition": "slide",
@@ -739,6 +826,6 @@
       }
     }
   ],
-  "generatedAt": "2025-09-01T18:04:33.132Z",
+  "generatedAt": "2025-09-01T18:10:32.208Z",
   "version": "1.0.0"
 }
