@@ -18,12 +18,17 @@ const BookViewPage: React.FC = () => {
   const [showControls, setShowControls] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [direction, setDirection] = useState<'next' | 'prev' | null>(null);
+  const [previousPageIndex, setPreviousPageIndex] = useState<number | null>(null);
+  const [nextPageIndex, setNextPageIndex] = useState<number | null>(null);
   const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const enableAnimations = settings.enableAnimations;
   const enableSounds = settings.enableSounds;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const TURN_DURATION_MS = prefersReducedMotion ? 200 : 650;
+  const EASE_SCALE_TURN: [number, number, number, number] = [0.77, 0.0, 0.175, 1]; // easeInOutQuart
+  const EASE_TRANSLATE_TURN: [number, number, number, number] = [0.33, 1, 0.68, 1]; // easeOutCubic feel
 
   useEffect(() => {
     if (bookId && books.length > 0) {
@@ -49,20 +54,28 @@ const BookViewPage: React.FC = () => {
   const handleNextPage = useCallback(() => {
     if (!currentBook || isTransitioning) return;
     
-    setIsTransitioning(true);
     const nextIndex = (currentPageIndex + 1) % currentBook.pages.length;
     
     if (nextIndex === 0 && autoPlay) {
       setAutoPlay(false);
     }
     
-    setCurrentPageIndex(nextIndex);
+    setIsTransitioning(true);
+    setDirection('next');
+    setNextPageIndex(nextIndex);
     
     if (enableSounds) {
       playPageTurnSound();
     }
     
-    setTimeout(() => setIsTransitioning(false), 600);
+    setTimeout(() => {
+      setCurrentPageIndex(nextIndex);
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setDirection(null);
+        setNextPageIndex(null);
+      }, 20);
+    }, TURN_DURATION_MS);
   }, [currentBook, isTransitioning, currentPageIndex, autoPlay, enableSounds]);
 
   useEffect(() => {
@@ -106,15 +119,24 @@ const BookViewPage: React.FC = () => {
   const handlePrevPage = () => {
     if (!currentBook || isTransitioning) return;
     
-    setIsTransitioning(true);
     const prevIndex = currentPageIndex === 0 ? currentBook.pages.length - 1 : currentPageIndex - 1;
-    setCurrentPageIndex(prevIndex);
+    
+    setIsTransitioning(true);
+    setDirection('prev');
+    setPreviousPageIndex(prevIndex);
     
     if (enableSounds) {
       playPageTurnSound();
     }
     
-    setTimeout(() => setIsTransitioning(false), 600);
+    setTimeout(() => {
+      setCurrentPageIndex(prevIndex);
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setDirection(null);
+        setPreviousPageIndex(null);
+      }, 20);
+    }, TURN_DURATION_MS);
   };
 
 
@@ -138,6 +160,105 @@ const BookViewPage: React.FC = () => {
     setShowControls(!showControls);
     setTimeout(() => setShowControls(true), 3000);
   };
+
+  const renderPageContent = (page: Book['pages'][0], animate: boolean = true) => (
+    <>
+      {page.media && page.media.length > 0 && (
+        <div className="absolute inset-1 flex items-center justify-center pt-16 pb-16">
+          <motion.img
+            src={page.media[0].url}
+            alt={page.media[0].altText || page.title}
+            style={{
+              height: 'fit-content',
+              maxHeight: '100vh',
+              borderRadius: '12px',
+              inset: '0.25rem',
+            }}
+            className="w-full h-full object-contain"
+            initial={animate ? { scale: 1.1, opacity: 0 } : {}}
+            animate={animate ? { scale: 1, opacity: 1 } : {}}
+            transition={{ duration: 0.8 }}
+          />
+        </div>
+      )}
+      
+      <motion.div
+        initial={animate ? { y: 20, opacity: 0 } : {}}
+        animate={animate ? { y: 0, opacity: 1 } : {}}
+        transition={{ delay: 0.3 }}
+        className="absolute bottom-20 left-4 right-4 z-30"
+      >
+        <div className="">
+          <h2 className="text-lg font-bold text-white drop-shadow-lg">
+            {page.title}
+          </h2>
+          <p className="text-xs text-white/80 mt-1 drop-shadow-sm">
+            {new Date().toLocaleDateString('en-US', { 
+              weekday: 'long',
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric',
+              hour: 'numeric',
+              minute: '2-digit',
+              hour12: true
+            })}
+          </p>
+        </div>
+      </motion.div>
+
+      {page.content && (
+        <motion.div
+          initial={animate ? { x: 20, opacity: 0 } : {}}
+          animate={animate ? { x: 0, opacity: 1 } : {}}
+          transition={{ delay: 0.4 }}
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 z-30 max-w-xs"
+        >
+          <div className="bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20 shadow-2xl">
+            <div className="text-white text-xs leading-relaxed drop-shadow-sm">
+              {page.content}
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {page.media && page.media[0]?.caption && (
+        <motion.div
+          initial={animate ? { y: -20, opacity: 0 } : {}}
+          animate={animate ? { y: 0, opacity: 1 } : {}}
+          transition={{ delay: 0.5 }}
+          className="absolute top-20 left-4 z-30"
+        >
+          <div className="bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20 shadow-2xl">
+            <p className="text-white/90 text-xs italic drop-shadow-sm">
+              {page.media[0]?.caption}
+            </p>
+          </div>
+        </motion.div>
+      )}
+      
+      {page.tags.length > 0 && (
+        <motion.div
+          initial={animate ? { y: -20, opacity: 0 } : {}}
+          animate={animate ? { y: 0, opacity: 1 } : {}}
+          transition={{ delay: 0.6 }}
+          className="absolute top-20 right-4 z-30"
+        >
+          <div className="bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20 shadow-2xl">
+            <div className="flex flex-wrap gap-1">
+              {page.tags.map((tag: string, index: number) => (
+                <span
+                  key={index}
+                  className="px-2 py-0.5 bg-white/20 text-white rounded-full text-xs font-medium border border-white/30"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </>
+  );
 
   if (!currentBook) {
     return (
@@ -264,135 +385,78 @@ const BookViewPage: React.FC = () => {
         <motion.div
           className="relative w-full h-full z-20"
         >
-          <AnimatePresence mode="wait" custom={currentPageIndex}>
+          {/* Base Layer - shows the page that should be visible under the turn */}
+          <div
+            className="absolute inset-0 w-full h-full overflow-hidden"
+            style={{ zIndex: 4 }}
+          >
+            {direction === 'next' && nextPageIndex !== null
+              ? renderPageContent(currentBook.pages[nextPageIndex], false) // Underlay next page (static)
+              : renderPageContent(currentPage, direction === null) // Current page animates only when idle
+            }
+          </div>
+
+          {/* Animation Layer - current page shrinks and moves right to reveal next */}
+          {direction === 'next' && (
             <motion.div
-              key={currentPageIndex}
-              custom={currentPageIndex}
-              initial={enableAnimations && !prefersReducedMotion ? {
-                scaleX: 0,
-                opacity: 0,
-                x: -20,
-              } : { opacity: 0 }}
-              animate={enableAnimations && !prefersReducedMotion ? {
-                scaleX: 1,
-                opacity: 1,
-                x: 0,
-              } : { opacity: 1 }}
-              exit={enableAnimations && !prefersReducedMotion ? {
-                scaleX: 0.3,
-                opacity: 0,
-                x: 20,
-              } : { opacity: 0 }}
-              transition={{
-                duration: prefersReducedMotion ? 0.2 : 0.4,
-                ease: [0.4, 0.0, 0.2, 1],
-              }}
-              className="relative w-full h-full overflow-hidden"
+              key="next-shrink"
+              className="absolute inset-0 w-full h-full overflow-hidden"
               style={{
                 transformOrigin: 'left center',
+                zIndex: 10,
+              }}
+              initial={{
+                scaleX: 1,
+                x: 0,
+              }}
+              animate={{
+                scaleX: 0.05,
+                x: '-10%',
+              }}
+              transition={{
+                scaleX: { duration: TURN_DURATION_MS / 1000, ease: EASE_SCALE_TURN },
+                x: { duration: TURN_DURATION_MS / 1000, ease: EASE_TRANSLATE_TURN },
               }}
             >
-              {currentPage.media && currentPage.media.length > 0 && (
-                <div className="absolute inset-1 flex items-center justify-center pt-16 pb-16">
-                {/* <div className="absolute top-16 bottom-16"> */}
-                  <motion.img
-                    src={currentPage.media[0].url}
-                    alt={currentPage.media[0].altText || currentPage.title}
-                    style={{
-                      height: 'fit-content',
-                      maxHeight: '100vh',
-                      borderRadius: '12px',
-                      inset: '0.25rem',
-                    }}
-                    className="w-full h-full object-contain"
-                    initial={{ scale: 1.1, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                  />
-                </div>
-              )}
-              
-              {/* Title overlay - frosted glass at bottom */}
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                className="absolute bottom-20 left-4 right-4 z-30"
-              >
-                <div className="">
-                  <h2 className="text-lg font-bold text-white drop-shadow-lg">
-                    {currentPage.title}
-                  </h2>
-                  <p className="text-xs text-white/80 mt-1 drop-shadow-sm">
-                    {new Date().toLocaleDateString('en-US', { 
-                      weekday: 'long',
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric',
-                      hour: 'numeric',
-                      minute: '2-digit',
-                      hour12: true
-                    })}
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Content overlay - frosted glass on the right side */}
-              {currentPage.content && (
-                <motion.div
-                  initial={{ x: 20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                  className="absolute top-1/2 right-4 transform -translate-y-1/2 z-30 max-w-xs"
-                >
-                  <div className="bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20 shadow-2xl">
-                    <div className="text-white text-xs leading-relaxed drop-shadow-sm">
-                      {currentPage.content}
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Caption overlay - frosted glass at top left */}
-              {currentPage.media && currentPage.media[0]?.caption && (
-                <motion.div
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="absolute top-20 left-4 z-30"
-                >
-                  <div className="bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20 shadow-2xl">
-                    <p className="text-white/90 text-xs italic drop-shadow-sm">
-                      {currentPage.media[0]?.caption}
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-              
-              {/* Tags overlay - frosted glass at top right */}
-              {currentPage.tags.length > 0 && (
-                <motion.div
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                  className="absolute top-20 right-4 z-30"
-                >
-                  <div className="bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20 shadow-2xl">
-                    <div className="flex flex-wrap gap-1">
-                      {currentPage.tags.map((tag, index) => (
-                        <span
-                          key={index}
-                          className="px-2 py-0.5 bg-white/20 text-white rounded-full text-xs font-medium border border-white/30"
-                        >
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              )}
+              {/* Moving page (current) */}
+              <div className="absolute inset-0 w-full h-full">
+                {renderPageContent(currentPage, false)}
+                {/* Subtle fold shadow for realism */}
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-black/25 to-transparent" />
+              </div>
             </motion.div>
-          </AnimatePresence>
+          )}
+
+          {/* Animation Layer - previous page expands from right over current */}
+          {direction === 'prev' && previousPageIndex !== null && (
+            <motion.div
+              key="prev-expand"
+              className="absolute inset-0 w-full h-full overflow-hidden"
+              style={{
+                transformOrigin: 'left center',
+                zIndex: 10,
+              }}
+              initial={{
+                scaleX: 0.05,
+                x: '-10%',
+              }}
+              animate={{
+                scaleX: 1,
+                x: 0,
+              }}
+              transition={{
+                scaleX: { duration: TURN_DURATION_MS / 1000, ease: EASE_SCALE_TURN },
+                x: { duration: TURN_DURATION_MS / 1000, ease: EASE_TRANSLATE_TURN },
+              }}
+            >
+              {/* Moving page (previous) */}
+              <div className="absolute inset-0 w-full h-full">
+                {renderPageContent(currentBook.pages[previousPageIndex], false)}
+                {/* Subtle fold shadow for realism */}
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-black/25 to-transparent" />
+              </div>
+            </motion.div>
+          )}
         </motion.div>
       </div>
 

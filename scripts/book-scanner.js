@@ -15,8 +15,6 @@ const outputDir = path.join(publicDir, 'processed-books');
 
 // Supported image formats
 const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.bmp'];
-const RESPONSIVE_WIDTHS = [320, 768, 1024, 1920];
-const LQIP_WIDTH = 32;
 
 class BookScanner {
   constructor() {
@@ -186,45 +184,10 @@ class BookScanner {
       const image = sharp(imagePath);
       const metadata = await image.metadata();
       
-      const responsiveImages = {};
-      const formats = ['webp', 'original'];
-      
-      for (const format of formats) {
-        responsiveImages[format] = {};
-        
-        for (const width of RESPONSIVE_WIDTHS) {
-          if (width > metadata.width) continue;
-          
-          const outputFilename = `${filename}-${width}w.${format === 'webp' ? 'webp' : ext.slice(1)}`;
-          const outputPath = path.join(bookOutputDir, outputFilename);
-          
-          let pipeline = image.clone().resize(width, null, {
-            withoutEnlargement: true,
-            kernel: sharp.kernel.lanczos3
-          });
-          
-          if (format === 'webp') {
-            pipeline = pipeline.webp({ quality: 85, effort: 6 });
-          } else {
-            pipeline = pipeline.jpeg({ quality: 90, mozjpeg: true });
-          }
-          
-          await pipeline.toFile(outputPath);
-          
-          responsiveImages[format][`${width}w`] = `/processed-books/${path.basename(bookOutputDir)}/${outputFilename}`;
-        }
-      }
-
-      // Generate LQIP (Low Quality Image Placeholder)
-      const lqipPath = path.join(bookOutputDir, `${filename}-lqip.webp`);
-      await image
-        .clone()
-        .resize(LQIP_WIDTH, null)
-        .webp({ quality: 20 })
-        .toFile(lqipPath);
-      
-      const lqipBuffer = await fs.readFile(lqipPath);
-      const lqipBase64 = `data:image/webp;base64,${lqipBuffer.toString('base64')}`;
+      // Copy the original image to the output directory without any processing
+      const outputFilename = `${filename}${ext}`;
+      const outputPath = path.join(bookOutputDir, outputFilename);
+      await fs.copy(imagePath, outputPath);
       
       // Check for page description
       const pageDescription = await this.findPageDescription(imagePath, bookFolderPath);
@@ -234,12 +197,10 @@ class BookScanner {
         title: pageDescription.title || this.formatTitle(filename),
         description: pageDescription.content,
         image: {
-          src: responsiveImages.original[Object.keys(responsiveImages.original)[0]] || '',
-          srcSet: this.generateSrcSet(responsiveImages),
+          src: `/processed-books/${path.basename(bookOutputDir)}/${outputFilename}`,
           alt: pageDescription.alt || `Page ${pageIndex + 1}`,
           width: metadata.width,
           height: metadata.height,
-          lqip: lqipBase64,
           aspectRatio: metadata.width / metadata.height
         },
         pageNumber: pageIndex + 1
@@ -274,20 +235,6 @@ class BookScanner {
     return { title: '', content: '', alt: '' };
   }
 
-  generateSrcSet(responsiveImages) {
-    const webpSrcSet = Object.entries(responsiveImages.webp || {})
-      .map(([size, url]) => `${url} ${size}`)
-      .join(', ');
-    
-    const originalSrcSet = Object.entries(responsiveImages.original || {})
-      .map(([size, url]) => `${url} ${size}`)
-      .join(', ');
-    
-    return {
-      webp: webpSrcSet,
-      original: originalSrcSet
-    };
-  }
 
   formatTitle(text) {
     return text

@@ -3,6 +3,21 @@
  * Provides type safety and documentation for all data structures
  */
 
+export interface ResponsiveSrcSet {
+  webp: string;
+  original: string;
+}
+
+export interface ResponsiveImage {
+  src: string;
+  srcSet: ResponsiveSrcSet;
+  alt: string;
+  width: number;
+  height: number;
+  lqip: string;
+  aspectRatio: number;
+}
+
 export interface MediaItem {
   id: string;
   type: 'image' | 'video' | 'audio';
@@ -10,6 +25,8 @@ export interface MediaItem {
   thumbnailUrl?: string;
   altText?: string;
   caption?: string;
+  // Enhanced image support for responsive images
+  responsive?: ResponsiveImage;
   metadata?: {
     width?: number;
     height?: number;
