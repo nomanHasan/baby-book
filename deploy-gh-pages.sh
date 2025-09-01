@@ -17,6 +17,12 @@ fi
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 echo "📍 Current branch: $CURRENT_BRANCH"
 
+# Create temporary directory and copy dist contents
+TEMP_DIR=$(mktemp -d)
+echo "📁 Copying dist contents to temporary directory..."
+cp -r dist/* "$TEMP_DIR/"
+echo "✅ Files copied to: $TEMP_DIR"
+
 # Stash any uncommitted changes
 echo "💾 Stashing any uncommitted changes..."
 git stash push -m "Deploy script stash" || true
@@ -37,8 +43,16 @@ find . -maxdepth 1 -type f ! -name '.git*' ! -name 'deploy-*' -delete 2>/dev/nul
 find . -maxdepth 1 -type d ! -name '.git' ! -path '.' -exec rm -rf {} + 2>/dev/null || true
 
 # Copy dist contents to root
-echo "📁 Copying dist contents..."
-cp -r dist/* . 2>/dev/null || true
+echo "📁 Copying dist contents to gh-pages root..."
+cp -r "$TEMP_DIR"/* .
+
+# Validate files were copied
+if [ ! -f "index.html" ]; then
+    echo "❌ Error: index.html not found after copying. Deployment failed."
+    rm -rf "$TEMP_DIR"
+    exit 1
+fi
+echo "✅ Files successfully copied to gh-pages branch"
 
 # Add .nojekyll file to disable Jekyll
 echo "📄 Adding .nojekyll file..."
@@ -60,6 +74,10 @@ git checkout $CURRENT_BRANCH
 # Restore stashed changes if any
 echo "💾 Restoring stashed changes..."
 git stash pop 2>/dev/null || true
+
+# Clean up temporary directory
+echo "🧹 Cleaning up temporary directory..."
+rm -rf "$TEMP_DIR"
 
 echo "✅ Deployment complete!"
 echo "🌐 Your site will be available at: https://nomanhasan.github.io/baby-book/"
