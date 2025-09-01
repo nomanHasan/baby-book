@@ -29,10 +29,12 @@ else
     git checkout --orphan gh-pages
 fi
 
-# Clean the gh-pages branch (keep .git)
+# Clean the gh-pages branch (keep .git and this script)
 echo "🧹 Cleaning gh-pages branch..."
 git rm -rf . 2>/dev/null || true
-rm -rf * 2>/dev/null || true
+# Clean all files except .git and scripts starting with deploy
+find . -maxdepth 1 -type f ! -name '.git*' ! -name 'deploy-*' -delete 2>/dev/null || true
+find . -maxdepth 1 -type d ! -name '.git' ! -path '.' -exec rm -rf {} + 2>/dev/null || true
 
 # Copy dist contents to root
 echo "📁 Copying dist contents..."
