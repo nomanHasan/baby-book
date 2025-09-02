@@ -393,7 +393,7 @@ const BookViewPage: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('/books')}
+                onClick={() => navigate('/')}
                 className="flex items-center gap-1 px-2 py-1 bg-white/20 backdrop-blur-md rounded-full shadow-lg hover:bg-white/30 transition-colors border border-white/20"
               >
                 <ArrowLeft className="w-3 h-3" />

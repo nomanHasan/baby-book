@@ -3,7 +3,7 @@ set -euo pipefail
 
 # === CONFIG ===
 NUM_IMAGES="${1:-10}"                  # how many images to capture (default 10)
-TARGET_DIR="${2:-/mnt/Working_Directory/Workspaces/React_Workspace/baby-book/books/Raindrop Baton & Reed Stage}"  # where to save files
+TARGET_DIR="${2:-/mnt/Working_Directory/Workspaces/React_Workspace/baby-book/books/Noton Noton}"  # where to save files
 FILE_PREFIX="${3:-storybook}"          # filename prefix
 RIGHT_CLICK_X=1375                     # X coordinate for right click (image area)
 RIGHT_CLICK_Y=800                      # Y coordinate for right click (image area)
