@@ -197,7 +197,7 @@ class BookScanner {
         title: pageDescription.title || this.formatTitle(filename),
         description: pageDescription.content,
         image: {
-          src: `/processed-books/${path.basename(bookOutputDir)}/${outputFilename}`,
+          src: `processed-books/${path.basename(bookOutputDir)}/${outputFilename}`,
           alt: pageDescription.alt || `Page ${pageIndex + 1}`,
           width: metadata.width,
           height: metadata.height,

@@ -44,7 +44,7 @@ function App() {
               coverImage: book.coverImage ? {
                 id: `cover-${book.id}`,
                 type: 'image' as const,
-                url: book.coverImage.src,
+                url: `/baby-book/${book.coverImage.src}`,
                 thumbnailUrl: book.coverImage.srcSet?.webp?.split(' ')[0],
                 altText: book.coverImage.alt || book.title,
                 metadata: {
@@ -61,7 +61,7 @@ function App() {
                 media: page.image ? [{
                   id: `media-${page.id}`,
                   type: 'image' as const,
-                  url: page.image.src,
+                  url: `/baby-book/${page.image.src}`,
                   thumbnailUrl: page.image.srcSet?.webp?.split(' ')[0],
                   altText: page.image.alt || page.title,
                   metadata: {
