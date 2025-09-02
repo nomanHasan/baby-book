@@ -21,6 +21,7 @@ const BookViewPage: React.FC = () => {
   const [direction, setDirection] = useState<'next' | 'prev' | null>(null);
   const [previousPageIndex, setPreviousPageIndex] = useState<number | null>(null);
   const [nextPageIndex, setNextPageIndex] = useState<number | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
   const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -30,16 +31,87 @@ const BookViewPage: React.FC = () => {
   const EASE_SCALE_TURN: [number, number, number, number] = [0.77, 0.0, 0.175, 1]; // easeInOutQuart
   const EASE_TRANSLATE_TURN: [number, number, number, number] = [0.33, 1, 0.68, 1]; // easeOutCubic feel
 
+  // Image preloading utility function
+  const preloadImage = useCallback((imageUrl: string): Promise<void> => {
+    // Skip if already loaded
+    if (loadedImages.has(imageUrl)) {
+      return Promise.resolve();
+    }
+    
+    return new Promise((resolve, _reject) => {
+      const img = new Image();
+      img.onload = () => {
+        setLoadedImages(prev => {
+          const newSet = new Set(prev);
+          newSet.add(imageUrl);
+          return newSet;
+        });
+        resolve();
+      };
+      img.onerror = () => {
+        console.error(`Failed to preload image: ${imageUrl}`);
+        resolve();
+      };
+      img.src = imageUrl;
+    });
+  }, [loadedImages]);
+
+  // Preload a batch of adjacent pages
+  const preloadAdjacentPages = useCallback(async (currentIndex: number, pagesAhead = 2, pagesBehind = 1) => {
+    if (!currentBook || currentBook.pages.length <= 1) return;
+    
+    const totalPages = currentBook.pages.length;
+    
+    // Preload pages ahead
+    for (let i = 1; i <= pagesAhead; i++) {
+      const nextIndex = (currentIndex + i) % totalPages;
+      const nextPage = currentBook.pages[nextIndex];
+      
+      if (nextPage.media && nextPage.media.length > 0) {
+        preloadImage(nextPage.media[0].url);
+      }
+    }
+    
+    // Preload pages behind
+    for (let i = 1; i <= pagesBehind; i++) {
+      const prevIndex = (currentIndex - i + totalPages) % totalPages;
+      const prevPage = currentBook.pages[prevIndex];
+      
+      if (prevPage.media && prevPage.media.length > 0) {
+        preloadImage(prevPage.media[0].url);
+      }
+    }
+  }, [currentBook, preloadImage]);
+
   useEffect(() => {
     if (bookId && books.length > 0) {
       const book = books.find((b: Book) => b.id === bookId);
       if (book) {
         setCurrentBook(book);
+        
+        // Preload current page and next pages
+        if (book.pages.length > 0) {
+          // Start with current page
+          const currentPage = book.pages[0];
+          if (currentPage.media && currentPage.media.length > 0) {
+            preloadImage(currentPage.media[0].url);
+          }
+          
+          // Then preload adjacent pages
+          preloadAdjacentPages(0);
+        }
       } else {
         navigate('/404');
       }
     }
-  }, [bookId, books, navigate]);
+  }, [bookId, books, navigate, preloadImage, preloadAdjacentPages]);
+
+  // Preload when current page changes
+  useEffect(() => {
+    if (currentBook) {
+      preloadAdjacentPages(currentPageIndex);
+    }
+  }, [currentPageIndex, currentBook, preloadAdjacentPages]);
 
   const playPageTurnSound = () => {
     try {
@@ -76,7 +148,7 @@ const BookViewPage: React.FC = () => {
         setNextPageIndex(null);
       }, 20);
     }, TURN_DURATION_MS);
-  }, [currentBook, isTransitioning, currentPageIndex, autoPlay, enableSounds]);
+  }, [currentBook, isTransitioning, currentPageIndex, autoPlay, enableSounds, TURN_DURATION_MS]);
 
   useEffect(() => {
     if (autoPlay && currentBook && currentBook.pages.length > 1) {
